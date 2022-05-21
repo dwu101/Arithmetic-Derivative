@@ -22,29 +22,29 @@ def product_rule(num1, num2):
         return num2 + prime_divisor_finder(num2)*num1
 
 
-def prime_divisor_finder(shit):
-    for prime_divisor in range(2,shit):
-        if prime_test(prime_divisor) == True and shit%prime_divisor == 0:
-            return product_rule(prime_divisor, int(shit/prime_divisor))
+def prime_divisor_finder(dividend):
+    for prime_divisor in range(2,dividend):
+        if prime_test(prime_divisor) == True and dividend%prime_divisor == 0:
+            return product_rule(prime_divisor, int(dividend/prime_divisor))
 
 
-def derivative(poop):
-    if poop == 0 or poop == 1:
+def derivative(AD):
+    if AD == 0 or AD == 1:
         return 0
     
-    elif prime_test(poop) == True:
+    elif prime_test(AD) == True:
         return 1
 
     else:
-        if poop%2 == 0:
-            return product_rule(2,int(poop/2))
+        if AD%2 == 0:
+            return product_rule(2,int(AD/2))
 
         else:
-          return prime_divisor_finder(poop)
+          return prime_divisor_finder(AD)
 
 
-poop = int(input("Find the Artithmetic Derivative of: "))
-if poop >= 0:
-    print(derivative(poop))               ## D(-n) = -D(n)
+AD = int(input("Find the Artithmetic Derivative of: "))
+if AD >= 0:
+    print(derivative(AD))               ## D(-n) = -D(n)
 else:
-    print(derivative(poop*-1)*-1)
+    print(derivative(AD*-1)*-1)
